@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { InfoPaginaService } from './services/info-pagina.service';
+import { PaisesService } from './services/paises.service';
 
 @Component({
   selector: 'app-root',
@@ -10,8 +11,9 @@ import { InfoPaginaService } from './services/info-pagina.service';
 export class AppComponent {
   title = 'coronatracker';
 
-  constructor(public infoPaginaService: InfoPaginaService) {
+  constructor(public infoPaginaService: InfoPaginaService,
+              public paisesService: PaisesService) {
 
   }
-
 }
+

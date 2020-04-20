@@ -16,6 +16,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AnalyticsComponent } from './pages/analytics/analytics.component';
 import { AboutComponent } from './pages/about/about.component';
 
+// PIPES
+import { ThousandsPipePipe } from './pipes/thousands-pipe.pipe';
+import { PaisComponent } from './pages/pais/pais.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +28,9 @@ import { AboutComponent } from './pages/about/about.component';
     MainComponent,
     NewsComponent,
     AnalyticsComponent,
-    AboutComponent
+    AboutComponent,
+    ThousandsPipePipe,
+    PaisComponent
   ],
   imports: [
     BrowserModule,

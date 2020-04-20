@@ -1,0 +1,66 @@
+<div *ngIf="pais">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">
+                <img [src]="pais.image_url" alt="" height="30" width="50">&nbsp;&nbsp;&nbsp;{{pais.country_name}}&nbsp;(detalle)
+            </h5>
+            <table style="width: 100%;">
+                <tr>
+                    <td style="width: 34%; padding: 0px 5px 0px 0px;">
+                        <div class="alert alert-danger text-center">
+                            <div class="font-weight-bold">Confirmados</div>
+                            <h5>{{ pais.confirmed }}</h5>
+                            <h6><small>+ {{ pais.confirmed-pais.prev_count_confirmed }}</small></h6>
+                        </div>
+                    </td>
+                    <td style="width: 33%; padding: 0px 5px 0px 5px;">
+                        <div class="alert alert-success text-center">
+                            <div class="font-weight-bold">Recuperados</div>
+                            <h5>{{pais.recovered}}</h5>
+                            <h6>+ {{ pais.recovered - pais.prev_count_recovered }}</h6>
+                        </div>
+                    </td>
+                    <td style="width: 33%; padding: 0px 0px 0px 5px;">
+                        <div class="alert alert-dark text-center">
+                            <div class="font-weight-bold">Muertos</div>
+                            <h5> {{pais.dead}} </h5>
+                            <h6>+ {{ pais.dead - pais.prev_count_dead }} </h6>
+                        </div>
+                    </td>
+                </tr>
+
+            </table>
+            <p>
+                Tasa de mortalidad: &nbsp; {{ pais.dead / pais.confirmed * 100 | number : '1.2-2'}}%
+            </p>
+            <p>
+                Tasa de recuperacion: &nbsp; {{ pais.recovered / pais.confirmed * 100 | number : '1.2-2'}}%
+            </p>
+
+            <!--             <div>
+                <p>UN_recognized: {{ pais.UN_recognized }} </p>
+                <p>confirmed: 334891</p>
+                <p>country_code: "us"</p>
+                <p>country_name: "United States"</p>
+                <p>>data_origin: "Wikipedia"</p>
+                <p>db_name: "United States"</p>
+                <p>dead: 9549</p>
+                <p>image_url: "https://restcountries.eu/data/usa.svg"</p>
+                <p>lat: 37.09024</p>
+                <p>long: -95.712891</p>
+                <p>population: 323947000</p>
+                <p></p>prev_count_confirmed: 311616
+                <p></p>prev_count_dead: 8489
+                <p></p>prev_count_recovered: 14943
+                <p></p>recovered: 17212
+                <p></p>sovereign: ""
+                <p></p>updated: "2020-04-05T22:20:08.400Z"
+                <p></p>velocity_confirmed: 23275
+                <p></p>velocity_dead: 1060
+                <p></p>velocity_recovered: 2269
+            </div> -->
+
+        </div>
+    </div>
+
+</div>

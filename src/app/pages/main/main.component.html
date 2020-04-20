@@ -1,83 +1,145 @@
-<!--Grid row-->
-<div class="row wow fadeIn">
+<section>
+    <!-- Loading -->
 
-    <!--Grid column-->
-    <div class="col-md-9 mb-4">
+    <div align="center" *ngIf="paisesService.cargando">
+        <h2>Cargando</h2>
 
-        <!--Card-->
+        <div class="loader loader--style1" title="0">
+            <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+            <path opacity="0.2" fill="#000" d="M20.201,5.169c-8.254,0-14.946,6.692-14.946,14.946c0,8.255,6.692,14.946,14.946,14.946
+            s14.946-6.691,14.946-14.946C35.146,11.861,28.455,5.169,20.201,5.169z M20.201,31.749c-6.425,0-11.634-5.208-11.634-11.634
+            c0-6.425,5.209-11.634,11.634-11.634c6.425,0,11.633,5.209,11.633,11.634C31.834,26.541,26.626,31.749,20.201,31.749z"/>
+            <path fill="#000" d="M26.013,5.047l1.654-2.866c-2.198-1.272-4.743-2.012-7.466-2.012h0v3.312h0
+            C22.32,8.481,24.301,9.057,26.013,5.047z">
+            <animateTransform attributeType="xml"
+                attributeName="transform"
+                type="rotate"
+                from="0 20 20"
+                to="360 20 20"
+                dur="0.5s"
+                repeatCount="indefinite"/>
+            </path>
+            </svg>
+        </div>
+
+        <p>Espere por favor</p>
+    </div>
+
+    <!-- Loading END -->
+    <div *ngIf="!paisesService.cargando">
+
         <div class="card">
-
-            <!--Card content-->
             <div class="card-body">
-
-                <canvas id="myChart"></canvas>
+                <h5 class="card-title">
+                    <img src="../../../assets/img/world.png" alt="" height="30" width="30">&nbsp;&nbsp;&nbsp;WORLD&nbsp;
+                </h5>
+                <table style="width: 100%;">
+                    <tr>
+                        <td style="width: 34%; padding: 0px 5px 0px 0px;">
+                            <div class="alert alert-danger text-center">
+                                <h5>{{paisesService.totalConfirmados}}</h5>
+                                <div class="font-weight-bold">Confirmados</div>
+                            </div>
+                        </td>
+                        <td style="width: 33%; padding: 0px 5px 0px 5px;">
+                            <div class="alert alert-success text-center">
+                                <h5>{{paisesService.totalRecuperados}}</h5>
+                                <div class="font-weight-bold">Recuperados</div>
+                            </div>
+                        </td>
+                        <td style="width: 33%; padding: 0px 0px 0px 5px;">
+                            <div class="alert alert-dark text-center">
+                                <h5> {{paisesService.totalMuertos}} </h5>
+                                <div class="font-weight-bold">Muertos</div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <!--                 <div>
+                    <p>UN_recognized: {{ pais.UN_recognized }} </p>
+                    <p>confirmed: 334891</p>
+                    <p>country_code: "us"</p>
+                    <p>country_name: "United States"</p>
+                    <p>>data_origin: "Wikipedia"</p>
+                    <p>db_name: "United States"</p>
+                    <p>dead: 9549</p>
+                    <p>image_url: "https://restcountries.eu/data/usa.svg"</p>
+                    <p>lat: 37.09024</p>
+                    <p>long: -95.712891</p>
+                    <p>population: 323947000</p>
+                    <p></p>prev_count_confirmed: 311616
+                    <p></p>prev_count_dead: 8489
+                    <p></p>prev_count_recovered: 14943
+                    <p></p>recovered: 17212
+                    <p></p>sovereign: ""
+                    <p></p>updated: "2020-04-05T22:20:08.400Z"
+                    <p></p>velocity_confirmed: 23275
+                    <p></p>velocity_dead: 560
+                    <p></p>velocity_recovered: 2269
+                </div> -->
 
             </div>
-
         </div>
-        <!--/.Card-->
 
-    </div>
-    <!--Grid column-->
-
-    <!--Grid column-->
-    <div class="col-md-3 mb-4">
-
-        <!--Card-->
-        <div class="card mb-4">
-
-            <!-- Card header -->
-            <div class="card-header text-center">
-                Pie chart
-            </div>
-
-            <!--Card content-->
+        <div class="card mt-4">
             <div class="card-body">
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col"><small>Pais</small></th>
+                            <th scope="col"><small>Confirmados</small></th>
+                            <th scope="col"><small>Recuperados</small></th>
+                            <th scope="col"><small>Muertos</small></th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-                <canvas id="pieChart"></canvas>
+                        <tr *ngFor="let paises of paisesService.paises; let i = index">
 
+                            <th scope="row" style="background-color: rgb(223, 213, 213);">
+                                <a [routerLink]="['/pais', i]">
+                                    <img [src]="paises.image_url" alt="" height="15" width="25">&nbsp;<small>{{paises.country_name}}</small>
+                                </a>
+                            </th>
+
+                            <td class="text-right"><strong>{{paises.confirmed | number}}</strong></td>
+                            <td class="text-right"><strong>{{paises.recovered | number}}</strong></td>
+                            <td class="text-right"><strong>{{paises.dead | number}}</strong></td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
             </div>
-
         </div>
-        <!--/.Card-->
 
-        <!--Card-->
-        <div class="card mb-4">
 
-            <!--Card content-->
-            <div class="card-body">
 
-                <!-- List group links -->
-                <div class="list-group list-group-flush">
-                    <a class="list-group-item list-group-item-action waves-effect">Sales
-                  <span class="badge badge-success badge-pill pull-right">22%
-                    <i class="fas fa-arrow-up ml-1"></i>
-                  </span>
-                </a>
-                    <a class="list-group-item list-group-item-action waves-effect">Traffic
-                  <span class="badge badge-danger badge-pill pull-right">5%
-                    <i class="fas fa-arrow-down ml-1"></i>
-                  </span>
-                </a>
-                    <a class="list-group-item list-group-item-action waves-effect">Orders
-                  <span class="badge badge-primary badge-pill pull-right">14</span>
-                </a>
-                    <a class="list-group-item list-group-item-action waves-effect">Issues
-                  <span class="badge badge-primary badge-pill pull-right">123</span>
-                </a>
-                    <a class="list-group-item list-group-item-action waves-effect">Messages
-                  <span class="badge badge-primary badge-pill pull-right">8</span>
-                </a>
+        <!--         <div class="card-deck">
+            <div class="card text-white bg-danger">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Confirmados</h5>
+                    <h1>333.333</h1>
+                    <p><small>Incluye recuperados y muertos</small></p>
                 </div>
-                <!-- List group links -->
-
             </div>
+            <div class="card text-white bg-success">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Recuperados</h5>
+                    <h1>222.222</h1>
+                </div>
+            </div>
+            <div class="card text-white bg-dark">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Muertos</h5>
+                    <h1>55.555</h1>
+                </div>
+            </div>
+        </div> -->
 
-        </div>
-        <!--/.Card-->
+
 
     </div>
-    <!--Grid column-->
 
-</div>
+</section>
 <!--Grid row-->

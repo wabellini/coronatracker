@@ -8,7 +8,7 @@ import { InfoPagina } from '../interfaces/info-pagina.interface';
 export class InfoPaginaService {
 
   info: InfoPagina = {};
-  cargada = true;
+  cargada = false;
 
   equipo: any[] = [];
 
