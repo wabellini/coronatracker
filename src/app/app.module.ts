@@ -15,10 +15,14 @@ import { NewsComponent } from './pages/news/news.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AnalyticsComponent } from './pages/analytics/analytics.component';
 import { AboutComponent } from './pages/about/about.component';
+import { FormsModule } from '@angular/forms';
+
 
 // PIPES
 import { ThousandsPipePipe } from './pipes/thousands-pipe.pipe';
 import { PaisComponent } from './pages/pais/pais.component';
+import { ListComponent } from './pages/list/list.component';
+import { FiltropaisesPipe } from './pipes/filtropaises.pipe';
 
 @NgModule({
   declarations: [
@@ -30,12 +34,15 @@ import { PaisComponent } from './pages/pais/pais.component';
     AnalyticsComponent,
     AboutComponent,
     ThousandsPipePipe,
-    PaisComponent
+    PaisComponent,
+    ListComponent,
+    FiltropaisesPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

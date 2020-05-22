@@ -9,6 +9,9 @@ export class PaisesService {
 
   cargando = true;
   paises: Pais[] = [];
+  paises10: Pais[] = [];
+
+  filtroPais: '';
 
   totalConfirmados = 0;
   totalRecuperados = 0;
@@ -29,6 +32,10 @@ export class PaisesService {
           this.totalConfirmados += this.paises[i].confirmed;
           this.totalRecuperados += this.paises[i].recovered;
           this.totalMuertos += this.paises[i].dead;
+          if ( i < 10 ) {
+            this.paises10.push(this.paises[i]);
+          }
+
         }
 
         /*
@@ -46,6 +53,8 @@ export class PaisesService {
     return this.http.get(`https://coronatracker-84f60.firebaseio.com/CORONAVIRUS/${ id }.json`);
 
   }
+
+
 
 
 }

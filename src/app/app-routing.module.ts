@@ -7,9 +7,11 @@ import { NewsComponent } from './pages/news/news.component';
 import { AnalyticsComponent } from './pages/analytics/analytics.component';
 import { AboutComponent } from './pages/about/about.component';
 import { PaisComponent } from './pages/pais/pais.component';
+import { ListComponent } from './pages/list/list.component';
 
 const APPROUTES: Routes = [
     {path: 'main', component: MainComponent},
+    {path: 'list', component: ListComponent},
     {path: 'news', component: NewsComponent},
     {path: 'analitycs', component: AnalyticsComponent},
     {path: 'about', component: AboutComponent},

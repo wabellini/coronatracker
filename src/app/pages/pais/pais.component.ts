@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { PaisesService } from '../../services/paises.service';
 import { Pais } from '../../interfaces/pais.interface';
@@ -13,7 +14,8 @@ export class PaisComponent implements OnInit {
   pais: Pais;
 
   constructor(private route: ActivatedRoute,
-              public paisesService: PaisesService) { }
+              public paisesService: PaisesService,
+              private location: Location) { }
 
   ngOnInit() {
 
@@ -30,6 +32,10 @@ export class PaisComponent implements OnInit {
         }
       );
 
+  }
+
+  volver() {
+    this.location.back();
   }
 
 }

@@ -37,6 +37,10 @@
                 Tasa de recuperacion: &nbsp; {{ pais.recovered / pais.confirmed * 100 | number : '1.2-2'}}%
             </p>
 
+            <P>
+                <button class="btn btn-info" (click)='volver()'>Volver</button>
+            </P>
+
             <!--             <div>
                 <p>UN_recognized: {{ pais.UN_recognized }} </p>
                 <p>confirmed: 334891</p>

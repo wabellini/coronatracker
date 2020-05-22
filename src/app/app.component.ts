@@ -12,8 +12,6 @@ export class AppComponent {
   title = 'coronatracker';
 
   constructor(public infoPaginaService: InfoPaginaService,
-              public paisesService: PaisesService) {
-
-  }
+              public paisesService: PaisesService) { }
 }
 
