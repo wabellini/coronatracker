@@ -13,6 +13,9 @@ export class PaisComponent implements OnInit {
 
   pais: Pais;
 
+  muertosPorc = 0;
+  recuperadosPorc = 0;
+
   constructor(private route: ActivatedRoute,
               public paisesService: PaisesService,
               private location: Location) { }
@@ -28,6 +31,10 @@ export class PaisComponent implements OnInit {
             .subscribe( (pais: Pais ) => {
               console.log(pais);
               this.pais = pais;
+              this.muertosPorc = (( this.pais.dead / this.pais.confirmed ) * 100 );
+              this.recuperadosPorc = (( this.pais.recovered / this.pais.confirmed) * 100 );
+              // console.log(this.muertosPorc);
+              // console.log(this.recuperadosPorc);
             });
         }
       );

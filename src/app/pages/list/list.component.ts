@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Console } from 'console';
 import { PaisesService } from '../../services/paises.service';
 
 @Component({
@@ -8,7 +9,9 @@ import { PaisesService } from '../../services/paises.service';
 })
 export class ListComponent implements OnInit {
 
-  constructor(public paisesService: PaisesService) { }
+  constructor(public paisesService: PaisesService) { 
+    
+  }
 
   ngOnInit() {
   }

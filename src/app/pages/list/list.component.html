@@ -1,6 +1,5 @@
 <section>
     <!-- Loading -->
-
     <div align="center" *ngIf="paisesService.cargando">
         <h2>Cargando</h2>
 
@@ -24,18 +23,13 @@
 
         <p>Espere por favor</p>
     </div>
-
     <!-- Loading END -->
 
     <!--Grid row-->
     <div *ngIf="!paisesService.cargando" class="row wow fadeIn">
-
         <!--Grid column-->
         <!-- <div class="col-md-9 mb-4"> -->
         <div class="col-md-12">
-
-
-
             <!--Card-->
             <div class="card">
 
@@ -64,33 +58,23 @@
                             </tr>
                         </thead>
                         <tbody>
-
                             <tr *ngFor="let paises of paisesService.paises| filtropaises:'country_name': paisesService.filtroPais ; let i = index">
-
                                 <th scope="row" style="background-color: rgb(223, 213, 213);">
                                     <a [routerLink]="['/pais', i]">
                                         <img [src]="paises.image_url" alt="" height="15" width="25">&nbsp;<small>{{paises.country_name}}</small>
                                     </a>
                                 </th>
-
                                 <td class="text-right"><small><strong>{{paises.confirmed | number}}</strong></small></td>
                                 <td class="text-right"><small><strong>{{paises.recovered | number}}</strong></small></td>
                                 <td class="text-right"><small><strong>{{paises.dead | number}}</strong></small></td>
                             </tr>
-
                         </tbody>
-
                     </table>
-
                 </div>
-
             </div>
             <!--/.Card-->
-
         </div>
         <!--Grid column-->
-
     </div>
     <!--Grid row-->
-
 </section>>

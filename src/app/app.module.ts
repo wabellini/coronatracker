@@ -23,6 +23,8 @@ import { ThousandsPipePipe } from './pipes/thousands-pipe.pipe';
 import { PaisComponent } from './pages/pais/pais.component';
 import { ListComponent } from './pages/list/list.component';
 import { FiltropaisesPipe } from './pipes/filtropaises.pipe';
+import { Donut1Component } from './pages/donut1/donut1.component';
+import { Donut2Component } from './pages/donut2/donut2.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { FiltropaisesPipe } from './pipes/filtropaises.pipe';
     ThousandsPipePipe,
     PaisComponent,
     ListComponent,
-    FiltropaisesPipe
+    FiltropaisesPipe,
+    Donut1Component,
+    Donut2Component
   ],
   imports: [
     BrowserModule,
